@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .section {
+    width: 80%;  /* Adjust width as necessary */
+    max-width: 800px;  /* Ensures the content is not too wide on larger screens */
+    margin-bottom: 40px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Subtle shadow for better visual separation */
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .section img {
+    max-width: 100%;  /* Ensures images are not oversized */
+    height: auto;
+    border-radius: 4px;  /* Optional: adds rounded corners to images */
+  }
+  
+  .section video {
+    width: 100%;  /* Ensures videos take full width of the section */
+    height: auto;
+    border-radius: 4px;  /* Optional: adds rounded corners to videos */
+  }
+
+
+
+  .code-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start of the flex container */
+    position: relative; /* Set the position relative for absolute child positioning */
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f4f4f8;
+    border-left: 5px solid #9e9e9e;
+  }
+  
+  .pre {
+    overflow-x: auto; /* Allows horizontal scrolling */
+    white-space: pre-wrap; /* Allows text to wrap */
+    word-break: break-word; /* Breaks words that would overflow the container */
+    font-family: 'Courier New', monospace; /* Ensures consistent character width */
+    position: relative; /* Needed for accurate positioning of the button and message */
+    width: 100%; /* Ensure the pre element takes the full width */
+  }
+  
+  .copy-button, .copy-message {
+    position: absolute; /* Position the button and message absolutely within the .code-block */
+    right: 10px; /* Positioned to the right */
+    top: 10px; /* Positioned at the top */
+    z-index: 10; /* Ensure it's above the pre element */
+  }
+  
+  .copy-button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    white-space: nowrap; /* Prevents wrapping on the button text */
+  }
+  
+  .copy-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .copy-message {
+    color: green;
+    font-size: 0.8rem;
+    background-color: #d4edda;
+    padding: 2px 5px;
+    border-radius: 5px;
+    display: none; /* Initially don't display the message */
+  }
+  
+  /* Additional styles to handle the visibility of the message */
+  .code-block:hover .copy-button {
+    display: block; /* Show the copy button on hover */
+  }
+  
+  .code-block:hover .copy-message {
+    display: none; /* Ensure the message is not shown when hovering over the code block */
+  }
+  
+  /* Style when the copy action has been triggered */
+  .code-block.copy-success .copy-button {
+    display: none; /* Hide the copy button */
+  }
+  
+  .code-block.copy-success .copy-message {
+    display: block; /* Show the copy message */
+  }
+  
+  
