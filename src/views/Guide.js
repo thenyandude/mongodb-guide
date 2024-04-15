@@ -5,6 +5,7 @@ import '../styles/Guide.css';
 const Guide = () => {
   const { content } = useMongoDBGuide();
   const [copySuccess, setCopySuccess] = useState({ show: false, message: '', index: -1 });
+  const [modalImage, setModalImage] = useState(null); // State to hold the modal image
 
   const handleCopyCode = (code, sectionIndex, codeIndex) => {
     const uniqueId = `${sectionIndex}-${codeIndex}`; // Create a unique ID for each code block
@@ -17,6 +18,15 @@ const Guide = () => {
       setTimeout(() => setCopySuccess({ show: false, message: '', index: '' }), 2000);
     });
   };
+
+  const openModal = (image) => {
+    setModalImage(image);
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
+  };
+
   
 
   return (
@@ -27,7 +37,7 @@ const Guide = () => {
           <h2>{section.title}</h2>
           <p>{section.description}</p>
           {section.images && section.images.map((img, imgIndex) => (
-            <img key={imgIndex} src={img} alt={`Illustration for ${section.title}`} />
+            <img key={imgIndex} src={img} alt={`Illustration for ${section.title}`} onClick={() => openModal(img)} />
           ))}
           {section.videos && section.videos.map((video, videoIndex) => (
             <video key={videoIndex} controls>
@@ -50,6 +60,12 @@ const Guide = () => {
             ))}
         </div>
       ))}
+      {modalImage && (
+        <div className="modal">
+          <span className="close" onClick={closeModal}>&times;</span>
+          <img className="modal-content" src={modalImage} alt="Modal Content" />
+        </div>
+            )}
     </div>
   );
 };

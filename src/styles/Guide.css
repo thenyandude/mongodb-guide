@@ -23,7 +23,7 @@
   .section img {
     max-width: 100%;  /* Ensures images are not oversized */
     height: auto;
-    border-radius: 4px;  /* Optional: adds rounded corners to images */
+    border-radius: 2px;  /* Optional: adds rounded corners to images */
   }
   
   .section video {
@@ -43,6 +43,8 @@
     padding: 10px;
     background-color: #f4f4f8;
     border-left: 5px solid #9e9e9e;
+    font-size: 20px;
+    font-weight: 700;
   }
   
   .pre {
@@ -52,6 +54,8 @@
     font-family: 'Courier New', monospace; /* Ensures consistent character width */
     position: relative; /* Needed for accurate positioning of the button and message */
     width: 100%; /* Ensure the pre element takes the full width */
+    font-weight: 200;
+
   }
   
   .copy-button, .copy-message {
@@ -101,5 +105,45 @@
   .code-block.copy-success .copy-message {
     display: block; /* Show the copy message */
   }
+
+
+  .modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw; /* Set width to 100% of the viewport width */
+    height: 100vh; /* Set height to 100% of the viewport height */
+    background-color: rgba(0,0,0,0.9); /* Dim the background significantly */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide scrollbars */
+    padding: 0; /* Remove padding */
+  }
   
+  .modal-content {
+    display: block;
+    max-width: none; /* Remove max-width restriction */
+    max-height: none; /* Remove max-height restriction */
+    width: 100vw; /* Set width to 100% of the viewport width */
+    height: 100vh; /* Set height to 100% of the viewport height */
+    object-fit: contain; /* Scale the image to be as large as possible without cropping or stretching */
+  }
+  
+  .close {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  
+/* Add responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .modal {
+      overflow: auto;
+    }
+  }
   

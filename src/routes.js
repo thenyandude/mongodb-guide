@@ -5,7 +5,7 @@ import Guide from './views/Guide';
 const AppRoutes = () => (
   <Router>
     <Routes>
-      <Route path="/guide" element={<Guide />} />
+      <Route path="/" element={<Guide />} />
     </Routes>
   </Router>
 );

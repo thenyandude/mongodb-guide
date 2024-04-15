@@ -14,8 +14,8 @@ export const useMongoDBGuide = () => {
         description: 'Før du installerer MongoDB, sørg for at systemet ditt møter disse forutsetningene.',
         images: ["/imgs/step1.png", "/imgs/step2.png"],
         codes: [
-          { code: 'sudo apt-get install curl', description: 'Installer curl for å hente MongoDB-pakker' },
-          { code: 'curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -', description: 'Legg til MongoDBs offentlige GPG-nøkkel' }
+          { code: 'sudo apt update', description: 'Oppdater den lokale pakkedatabasen.' },
+          { code: 'wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -', description: 'Legg til MongoDBs offentlige GPG-nøkkel' }
         ]
       },
       {
@@ -23,7 +23,7 @@ export const useMongoDBGuide = () => {
         description: 'Legg til MongoDB-repositoriet i systemets programvarelagerliste.',
         codes: [
           { code: `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -sc)/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list`, description: 'Legg til repositoriet' },
-          { code: 'sudo apt-get update', description: 'Oppdater den lokale pakkedatabasen' }
+          { code: 'sudo apt update', description: 'Oppdater den lokale pakkedatabasen igjen, for å bruke mongoDB' }
         ]
       },
       {
@@ -33,7 +33,7 @@ export const useMongoDBGuide = () => {
         codes: [
           { code: 'sudo apt-get install -y mongodb-org', description: 'Installer alle MongoDB-pakkene' },
           { code: 'sudo systemctl start mongod', description: 'Start MongoDB' },
-          { code: 'sudo systemctl status mongod', description: 'Sjekk status for MongoDB' }
+          { code: 'sudo systemctl status mongod', description: 'Sjekk status for MongoDB, se etter "active"' }
         ]
       },
       {
