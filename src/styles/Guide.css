@@ -12,7 +12,7 @@
   
   .section {
     width: 80%;  /* Adjust width as necessary */
-    max-width: 800px;  /* Ensures the content is not too wide on larger screens */
+    max-width: 850px;  /* Ensures the content is not too wide on larger screens */
     margin-bottom: 40px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Subtle shadow for better visual separation */
