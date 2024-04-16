@@ -1,24 +1,40 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #cbcbcb;
-  }
-  
-  .section {
-    width: 80%;  /* Adjust width as necessary */
-    max-width: 850px;  /* Ensures the content is not too wide on larger screens */
-    margin-bottom: 40px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Subtle shadow for better visual separation */
-    background-color: #fff;
-    border-radius: 8px;
-  }
+  display: flex;
+  flex-direction: column;  /* Maintain column layout */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%; /* Ensure full width is used */
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #cbcbcb;
+  position: relative; /* Added to establish a positioning context */
+}
+
+.sidebar {
+  position: fixed;  /* Change to fixed to maintain position on the side */
+  top: 20px;  /* Distance from the top */
+  right: 20px;  /* Positioned 20px from the right edge of the viewport */
+  height: calc(100vh - 40vh);  /* Adjust height to fit within the viewport */
+  width: 200px;  /* Fixed width for the sidebar */
+  overflow-y: auto;  /* Allows scrolling within the sidebar if content overflows */
+  padding: 10px;
+  background-color: #f4f4f8;  /* Different background color to distinguish it from the main content */
+  border-radius: 8px;  /* Optional styling */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Optional styling */
+  z-index: 100; /* Ensure it is above other content */
+}
+
+.section {
+  width: 80%;  /* Adjust width as necessary */
+  max-width: 850px;  /* Ensures the content is not too wide on larger screens */
+  margin-bottom: 40px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Subtle shadow for better visual separation */
+  background-color: #fff;
+  border-radius: 8px;
+}
   
   .section img {
     max-width: 100%;  /* Ensures images are not oversized */
