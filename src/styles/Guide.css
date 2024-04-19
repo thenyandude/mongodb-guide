@@ -180,3 +180,29 @@
     cursor: pointer;
   }
   
+
+  .tooltip-container {
+    position: relative;
+    display: inline-block;
+    color:#6b00b3
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 0;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -120px;
+  }
+  
+  .tooltip-container:hover .tooltip-text {
+    visibility: visible;
+  }
+  

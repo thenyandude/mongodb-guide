@@ -1,4 +1,12 @@
 import { useState, useEffect } from 'react';
+import Tooltip from '../components/ToolTip'; // Kontroller at importbanen er riktig
+
+const termsDefinitions = {
+  "NoSQL": 'NoSQL-databaser tillater lagring og gjenfinning av data som er modellert på andre måter enn de tabulære relasjonene som brukes i relasjonsdatabaser.',
+  "Admin":'En administratorbruker er en type brukerkonto på en datamaskin eller et nettverk som har tillatelse til å gjøre endringer som kan påvirke andre brukere av systemet. Denne brukeren kan installere programvare, endre sikkerhetsinnstillinger, og har tilgang til alle filer på systemet. Tenk på det som å være "sjefen" over datamaskinen, som kan bestemme over alt og alle.',
+  "Repo":'Et repositorium er et lagringssted hvor data, ofte knyttet til programvareutvikling, blir holdt og vedlikeholdt. I IT-verdenen brukes dette ordet ofte om steder hvor kode for programvare oppbevares og administreres. Dette kan være lokalt på en datamaskin eller på internett. For eksempel, nettsteder som GitHub eller Bitbucket hvor utviklere lagrer og håndterer sine kodingsprosjekter.',
+  "DB": 'En database er en samling av informasjon som er organisert på en måte som gjør det mulig å enkelt finne, hente og oppdatere data. I en skolekontekst kan du tenke på det som et digitalt skap hvor all elevinformasjon (som navn, alder, og karakterer) lagres systematisk. Databaser brukes i nesten alle applikasjoner du bruker, fra spill til sosiale medier, for å lagre forskjellige typer data.'
+};
 
 export const useMongoDBGuide = () => {
   const [content, setContent] = useState([]);
@@ -7,12 +15,16 @@ export const useMongoDBGuide = () => {
     setContent([
       {
         "title": "Introduksjon til MongoDB",
-        "description": "MongoDB er en NoSQL-database som tilbyr høy ytelse, høy tilgjengelighet, og enkel skalering. Den er ideell for webapplikasjoner som krever rask databehandling og fleksibel datahåndtering, slik som dynamiske blogging-plattformer eller sosiale medier apper hvor innholdet stadig endres og oppdateres.",
+        "description": (
+          <span>
+            <Tooltip text={termsDefinitions["NoSQL"]}>MongoDB</Tooltip> er en <Tooltip text={termsDefinitions["DB"]}>NoSQL-database</Tooltip> som tilbyr høy ytelse, høy tilgjengelighet, og enkel skalering. Den er ideell for webapplikasjoner som krever rask databehandling og fleksibel datahåndtering, slik som dynamiske blogging-plattformer eller sosiale medier apper hvor innholdet stadig endres og oppdateres.
+          </span>
+        ),
         "images": ["/imgs/MongoDB-Logo.png"]
-      },      
+      },
       {
         title: 'Forutsetninger',
-        description: 'Før du installerer MongoDB, sørg for at du gjør dette først.',
+        description:'Før du installerer MongoDB, sørg for at du gjør dette først.',
         images: ["/imgs/step1.png", "/imgs/step2.png"],
         codes: [
           { code: 'sudo apt update', description: 'Oppdater den lokale pakkedatabasen.' },
@@ -21,7 +33,11 @@ export const useMongoDBGuide = () => {
       },
       {
         title: 'Legge til MongoDB-repositoriet',
-        description: 'Legg til MongoDB-repositoriet i systemets programvarelagerliste.',
+        description: (
+          <span>
+            Legg til <Tooltip text={termsDefinitions["Repo"]}>MongoDB-repositoriet</Tooltip> i systemets programvarelagerliste.
+          </span>
+        ),
         codes: [
           { code: `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -sc)/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list`, description: 'Legg til repositoriet' },
           { code: 'sudo apt update', description: 'Oppdater den lokale pakkedatabasen igjen, for å bruke mongoDB' }
@@ -36,7 +52,6 @@ export const useMongoDBGuide = () => {
           { code: 'sudo systemctl start mongod', description: 'Start MongoDB' },
           { code: 'sudo systemctl status mongod', description: 'Sjekk status for MongoDB, se etter "active"' },
           { code: 'mongosh', description: 'Åpne MongoDB Shellet' }
-
         ]
       },
       {
@@ -48,7 +63,11 @@ export const useMongoDBGuide = () => {
       },
       {
         title: 'Sikre din MongoDB-server',
-        description: 'Konfigurer sikkerhetstiltak og opprett en administratorbruker for å administrere databasen.',
+        description: (
+          <span>
+            Konfigurer sikkerhetstiltak og opprett en <Tooltip text={termsDefinitions["Admin"]}>administratorbruker</Tooltip> for å administrere databasen.
+          </span>
+        ),
         codes: [
           { code: 'mongosh', description: 'Start MongoDB shell' },
           { code: 'use admin', description: 'Bytt til admin-databasen' },
