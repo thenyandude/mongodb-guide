@@ -32,7 +32,7 @@ export const useMongoDBGuide = () => {
         description: 'Installer MongoDB-pakker på systemet ditt, og deretter start og verifiser MongoDB-tjenesten',
         videos:["/vids/install_and_test.webm"],
         codes: [
-          { code: 'sudo apt-get install -y mongodb-org', description: 'Installer alle MongoDB-pakkene' },
+          { code: 'sudo apt install -y mongodb-org', description: 'Installer alle MongoDB-pakkene' },
           { code: 'sudo systemctl start mongod', description: 'Start MongoDB' },
           { code: 'sudo systemctl status mongod', description: 'Sjekk status for MongoDB, se etter "active"' },
           { code: 'mongosh', description: 'Åpne MongoDB Shellet' }
