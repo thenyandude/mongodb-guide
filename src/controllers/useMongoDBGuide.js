@@ -24,7 +24,7 @@ export const useMongoDBGuide = () => {
       },
       {
         title: 'Forutsetninger',
-        description:'Før du installerer MongoDB, sørg for at du gjør dette først.',
+        description:'Før du installerer MongoDB, sørg for at du gjør dette først. Ha en VM klar.',
         images: ["/imgs/step1.png", "/imgs/step2.png"],
         codes: [
           { code: 'sudo apt update', description: 'Oppdater den lokale pakkedatabasen.' },
@@ -97,6 +97,16 @@ export const useMongoDBGuide = () => {
             description: 'Erstatt "yourServerIP" med IP-adressen eller vertsnavnet til din MongoDB-server, og tilpass brukernavn og passord som du har konfigurert.'
           }
         ]
+      },
+      {
+        title: 'Konklusjon',
+        description: (
+          <span>
+            Denne guiden har tatt deg gjennom de nødvendige trinnene for å installere, konfigurere og sikre en <Tooltip text={termsDefinitions["DB"]}>MongoDB-database</Tooltip>. Viktigheten av sikkerhetsaspekter som autentisering og korrekt administrasjon gjennom en <Tooltip text={termsDefinitions["Admin"]}>administratorbruker</Tooltip> kan ikke understrekes nok. Å ha et solid <Tooltip text={termsDefinitions["Repo"]}>repositorium</Tooltip> for backup og versjonskontroll er også essensielt for vedlikehold og skalerbarhet. Til slutt, sikre deg at du alltid tester databasetilkoblingen grundig før du går live med en applikasjon.
+          </span>
+        ),
+        images: [],
+        codes: []
       }
     ]);
   }, []);

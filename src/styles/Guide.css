@@ -16,7 +16,7 @@
   position: fixed;  /* Change to fixed to maintain position on the side */
   top: 50px;  /* Distance from the top */
   left: 50px;  /* Positioned 20px from the left edge of the viewport */
-  height: calc(100vh - 40vh);  /* Adjust height to fit within the viewport */
+  height: calc(100vh - 35vh);  /* Adjust height to fit within the viewport */
   width: 200px;  /* Fixed width for the sidebar */
   overflow-y: auto;  /* Allows scrolling within the sidebar if content overflows */
   padding: 10px;
