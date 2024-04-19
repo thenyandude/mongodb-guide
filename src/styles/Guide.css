@@ -14,8 +14,8 @@
 
 .sidebar {
   position: fixed;  /* Change to fixed to maintain position on the side */
-  top: 20px;  /* Distance from the top */
-  right: 20px;  /* Positioned 20px from the right edge of the viewport */
+  top: 50px;  /* Distance from the top */
+  left: 50px;  /* Positioned 20px from the left edge of the viewport */
   height: calc(100vh - 40vh);  /* Adjust height to fit within the viewport */
   width: 200px;  /* Fixed width for the sidebar */
   overflow-y: auto;  /* Allows scrolling within the sidebar if content overflows */
@@ -24,6 +24,30 @@
   border-radius: 8px;  /* Optional styling */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Optional styling */
   z-index: 100; /* Ensure it is above other content */
+}
+
+.sidebar-item {
+  display: block; /* Display as block to span the full width of the sidebar */
+  text-align: left; /* Align text to the left */
+  padding: 10px; /* Add padding for spacing */
+  margin: 25px 0; /* Add some margin to separate the buttons */
+  background-color: #efefef; /* Light grey background */
+  color: #333; /* Dark grey text color */
+  border: none; /* Remove borders */
+  border-radius: 4px; /* Slightly rounded corners for the buttons */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Inner shadow for some depth */
+  cursor: pointer; /* Change mouse cursor on hover */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #dcdcdc; /* Darker background on hover/active */
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.3); /* Deeper shadow for active state */
+}
+
+.sidebar-item:not(:last-child) {
+  border-bottom: 1px solid #ddd; /* Add a border to separate the items, except the last one */
 }
 
 .section {
@@ -84,7 +108,7 @@
   .copy-button {
     padding: 5px 10px;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: #007641;
     color: white;
     border: none;
     border-radius: 5px;
@@ -154,12 +178,5 @@
     color: #fff;
     font-size: 2em;
     cursor: pointer;
-  }
-  
-/* Add responsive styles for mobile devices */
-@media (max-width: 768px) {
-    .modal {
-      overflow: auto;
-    }
   }
   
