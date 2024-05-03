@@ -47,7 +47,7 @@ const Guide = () => {
           </button>
         ))}
       </div>
-
+  
       <h1>MongoDB Guide</h1>
       {content.map((section, sectionIndex) => (
         <div key={sectionIndex} className="section" id={`section${sectionIndex}`}>
@@ -63,18 +63,22 @@ const Guide = () => {
             </video>
           ))}
           {section.codes && section.codes.map((code, codeIndex) => (
-            <div key={codeIndex} className={`code-block ${copySuccess.show && copySuccess.index === `${sectionIndex}-${codeIndex}` ? 'copy-success' : ''}`}>
-                <p>{code.description}</p>
-                <pre className="pre">{code.code}</pre>
-                <button 
+            <div key={codeIndex} className="code-block">
+              <p>{code.description}</p>
+              <pre className="pre">{code.code}</pre>
+              <button 
                 onClick={() => handleCopyCode(code.code, sectionIndex, codeIndex)} 
                 className="copy-button"
-                >
+              >
                 Kopier til utklippstavlen
-                </button>
-                <span className="copy-message">{copySuccess.message}</span>
+              </button>
             </div>
-            ))}
+          ))}
+          {section.additionalNotes && (
+            <div className="additional-notes">
+              <p>{section.additionalNotes}</p>
+            </div>
+          )}
         </div>
       ))}
       {modalImage && (
@@ -85,6 +89,7 @@ const Guide = () => {
       )}
     </div>
   );
+  
 };
 
 export default Guide;

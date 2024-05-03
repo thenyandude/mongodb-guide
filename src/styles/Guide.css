@@ -102,7 +102,7 @@
     position: absolute; /* Position the button and message absolutely within the .code-block */
     right: 10px; /* Positioned to the right */
     top: 10px; /* Positioned at the top */
-    z-index: 10; /* Ensure it's above the pre element */
+    z-index: 5; /* Ensure it's above the pre element */
   }
   
   .copy-button {
@@ -196,7 +196,7 @@
     border-radius: 6px;
     padding: 20px 0;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     top: 100%;
     left: 50%;
     margin-left: -120px;
